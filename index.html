@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="/logo.webp">
+  <link rel="preload" as="image" href="/logo.webp" fetchpriority="high">
 
   <style>
     :root {
@@ -123,24 +123,49 @@
     }
   </style>
 
-  <!-- Google Tag Manager -->
-  <script defer>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TXJQVTQR');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17964329633"></script>
+  <!-- Google Tag Manager / GTag Delayed Loading -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'AW-17964329633');
+    (function () {
+      let gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+
+        // Load GTM
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+              new Date().getTime(), event: 'gtm.js'
+          }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TXJQVTQR');
+
+        // Load Gtag
+        const gTagScript = document.createElement('script');
+        gTagScript.async = true;
+        gTagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17964329633';
+        document.head.appendChild(gTagScript);
+
+        gTagScript.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'AW-17964329633');
+        };
+
+        // Remove listeners
+        window.removeEventListener('scroll', loadGTM);
+        window.removeEventListener('mousemove', loadGTM);
+        window.removeEventListener('touchstart', loadGTM);
+      }
+
+      // Load GTM on interaction or after 3s
+      window.addEventListener('scroll', loadGTM, { passive: true });
+      window.addEventListener('mousemove', loadGTM, { passive: true });
+      window.addEventListener('touchstart', loadGTM, { passive: true });
+      setTimeout(loadGTM, 3000);
+    })();
   </script>
 </head>
 

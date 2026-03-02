@@ -63,6 +63,8 @@ const App = () => {
               className="logo-img"
               width="330"
               height="105"
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
           <a href={whatsappLink} className="btn-nav">WhatsApp</a>
