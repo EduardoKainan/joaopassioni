@@ -19,7 +19,7 @@ const App = () => {
       threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -27,9 +27,29 @@ const App = () => {
       });
     }, observerOptions);
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    const observeNewElements = () => {
+      document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
+        intersectionObserver.observe(el);
+      });
+    };
 
-    return () => observer.disconnect();
+    // Initial check
+    observeNewElements();
+
+    // Watch for lazy-loaded sections being added to the DOM
+    const mutationObserver = new MutationObserver((mutations) => {
+      observeNewElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    return () => {
+      intersectionObserver.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   const loadVideo = () => {

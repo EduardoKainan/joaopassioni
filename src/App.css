@@ -545,6 +545,15 @@ wistia-player[media-id='o6ksv33dc4']:not(:defined) {
   transform: translateY(0);
 }
 
+.section-loading {
+  padding: 100px 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 /* Media Queries */
 @media (max-width: 992px) {
   .hero-content {
