@@ -8,11 +8,13 @@ const About = lazy(() => import('./About'));
 const Steps = lazy(() => import('./Steps'));
 const Testimonials = lazy(() => import('./Testimonials'));
 const Footer = lazy(() => import('./Footer'));
+const FAQ = lazy(() => import('./FAQ'));
+
 
 const LandingPageTemplate = ({ title, subtitle, badge }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const whatsappNumber = "5519992345874";
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20gostaria%20de%20uma%20análise%20especializada%20sobre%20o%20bloqueio%20da%20minha%20conta.`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20meu%20WhatsApp%20Business%20foi%20bloqueado%20e%20preciso%20de%20ajuda%20jurídica%20urgente.%20Gostaria%20de%20uma%20análise%20do%20meu%20caso.`;
 
   useEffect(() => {
     const observerOptions = {
@@ -71,9 +73,9 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
     }
   };
 
-  const defaultTitle = "Sua conta do Instagram, Facebook ou WhatsApp foi bloqueada?";
-  const defaultSubtitle = "Você pode ter direito ao desbloqueio imediato pela Justiça. Atuação 100% online em todo o Brasil com foco em agilidade e resultados.";
-  const defaultBadge = "ESPECIALISTA EM DIREITO DIGITAL";
+  const defaultTitle = "WhatsApp Business Banido ou Bloqueado?";
+  const defaultSubtitle = "Sua conta WhatsApp Business foi banida, suspensa, hackeada ou desativada? Somos referência no Brasil em Recuperação de Contas Digitais — atuamos com urgência para devolver o seu negócio.";
+  const defaultBadge = "REFERÊNCIA EM RECUPERAÇÃO DE CONTAS DIGITAIS";
 
   return (
     <div className="lp-wrapper">
@@ -129,15 +131,37 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
             {subtitle || defaultSubtitle}
           </p>
           <a href={whatsappLink} className="btn btn-primary cta-hero">
-            Falar com advogado especialista agora
+            Falar com advogado agora
           </a>
           <div className="hero-trust">
-            <span>✓ Atendimento imediato</span>
-            <span>✓ Especialista em Redes Sociais</span>
-            <span>✓ 100% Online</span>
+            <span>✓ Recuperação em até 48h</span>
+            <span>✓ Indenização de até R$10.000</span>
+            <span>✓ 100% Online em todo o Brasil</span>
           </div>
         </div>
       </header>
+
+      {/* Trust Ticker */}
+      <div className="trust-ticker">
+        <div className="trust-ticker-track">
+          {[
+            "Atendimento humanizado",
+            "Agilidade e Transparência durante todo o processo",
+            "Suporte Online",
+            "Advogado Especialista",
+            "Recuperação em até 48h",
+            "Indenização de até R$10.000",
+            "Atendimento humanizado",
+            "Agilidade e Transparência durante todo o processo",
+            "Suporte Online",
+            "Advogado Especialista",
+            "Recuperação em até 48h",
+            "Indenização de até R$10.000",
+          ].map((item, i) => (
+            <span key={i} className="trust-ticker-item">✦ {item}</span>
+          ))}
+        </div>
+      </div>
 
       <Suspense fallback={<div className="section-loading">Carregando...</div>}>
         <Problem />
@@ -146,13 +170,14 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
         <About />
         <Steps />
         <Testimonials />
+        <FAQ whatsappLink={whatsappLink} />
 
         {/* CTA Final */}
         <section className="section-cta-final section-padding bg-gradient animate-on-scroll">
           <div className="container text-center">
-            <h2 className="section-title">Não deixe sua conta (e seu sustento) nas mãos de um robô.</h2>
-            <p className="lead">Fale agora com quem entende do assunto e recupere seu acesso imediatamente.</p>
-            <a href={whatsappLink} className="btn btn-primary btn-large">Recupere sua conta agora</a>
+            <h2 className="section-title">Não perca mais um dia de faturamento por causa de um bloqueio injusto.</h2>
+            <p className="lead">Enquanto sua conta está bloqueada, você está perdendo vendas, clientes e dinheiro. Fale agora com quem pode reverter isso pela Justiça — e ainda garantir uma indenização de até R$10.000.</p>
+            <a href={whatsappLink} className="btn btn-primary btn-large">Falar com advogado agora</a>
           </div>
         </section>
 

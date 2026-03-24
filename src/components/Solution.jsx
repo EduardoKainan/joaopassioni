@@ -5,18 +5,19 @@ const Solution = ({ whatsappLink }) => (
         <div className="container solution-container">
             <div className="solution-image animate-on-scroll">
                 <div className="glass-card">
-                    <h3>Soluções Jurídicas Estratégicas</h3>
+                    <h3>Por que somos referência em Recuperação de Contas</h3>
                     <ul className="solution-list">
-                        <li><span>✦</span> <strong>Reativação Imediata:</strong> Medidas liminares para devolver seu acesso rápido.</li>
-                        <li><span>✦</span> <strong>Indenizações:</strong> Solicitação de danos materiais e morais quando cabível.</li>
-                        <li><span>✦</span> <strong>Blindagem:</strong> Ações para impedir novas penalidades indevidas no futuro.</li>
+                        <li><span>✦</span> <strong>Recuperação Rápida:</strong> Recuperamos sua conta em aproximadamente 48 horas, para que você volte a vender sem preocupações.</li>
+                        <li><span>✦</span> <strong>Indenização de até R$10.000:</strong> Você pode ser elegível para receber pelos danos causados pelo bloqueio indevido.</li>
+                        <li><span>✦</span> <strong>Segurança Reforçada:</strong> Implementamos medidas jurídicas para evitar que sua conta seja bloqueada novamente.</li>
+                        <li><span>✦</span> <strong>Suporte Especializado:</strong> Acompanhamento total durante todo o processo de recuperação, com transparência e humanidade.</li>
                     </ul>
                 </div>
             </div>
             <div className="solution-text animate-on-scroll">
-                <h2 className="section-title">Recupere o que é seu por direito.</h2>
-                <p>Nossa atuação é focada em combater o autoritarismo dos algoritmos e garantir que seus direitos digitais sejam respeitados.</p>
-                <a href={whatsappLink} className="btn btn-primary">Quero recuperar minha conta</a>
+                <h2 className="section-title">Somos líderes em Recuperação de Contas do WhatsApp.</h2>
+                <p>Conte com uma equipe especializada em direito digital para recuperar sua conta WhatsApp Business. Oferecemos soluções personalizadas e ágeis para devolver o seu acesso e garantir os seus direitos — com atendimento humanizado e resultados reais.</p>
+                <a href={whatsappLink} className="btn btn-primary">Falar com advogado agora</a>
             </div>
         </div>
     </section>

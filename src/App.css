@@ -30,6 +30,7 @@
   height: 60px;
   width: auto;
   display: block;
+  object-fit: contain;
 }
 
 .logo-small .logo-img {
@@ -353,6 +354,10 @@ wistia-player[media-id='o6ksv33dc4']:not(:defined) {
 
 .profile-photo {
   width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 30px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -500,7 +505,84 @@ wistia-player[media-id='o6ksv33dc4']:not(:defined) {
   margin-top: 40px;
 }
 
+/* Trust Ticker */
+.trust-ticker {
+  background: var(--secondary);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.trust-ticker-track {
+  display: inline-flex;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.trust-ticker-item {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 0 30px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* FAQ Section */
+.faq-list {
+  max-width: 780px;
+  margin: 50px auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  text-align: left;
+  gap: 20px;
+  font-family: 'Montserrat', sans-serif;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  color: var(--secondary);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.faq-answer {
+  padding: 0 0 22px;
+}
+
+.faq-answer p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
 /* Footer */
+
 .footer {
   background: #f8f9fa;
   border-top: 1px solid rgba(0, 0, 0, 0.05);

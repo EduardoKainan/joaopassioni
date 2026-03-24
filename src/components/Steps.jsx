@@ -4,29 +4,29 @@ const Steps = () => (
     <section className="section-steps section-padding bg-dark">
         <div className="container">
             <div className="text-center animate-on-scroll">
-                <h2 className="section-title">Como funciona nosso atendimento</h2>
-                <p className="section-subtitle">Simples, direto e eficiente. Veja o passo a passo para recuperar sua conta.</p>
+                <h2 className="section-title">Como agimos para reativar sua conta</h2>
+                <p className="section-subtitle">Processo rápido, online e totalmente transparente. Seu negócio voltará a funcionar o quanto antes.</p>
             </div>
             <div className="steps-container">
                 <div className="step-card animate-on-scroll">
                     <div className="step-num">01</div>
-                    <h3>Contato via WhatsApp</h3>
-                    <p>Você explica seu caso brevemente para nossa equipe especializada.</p>
+                    <h3>Você nos chama no WhatsApp</h3>
+                    <p>Conta o que aconteceu com sua conta do WhatsApp Business. Atendimento imediato pela nossa equipe.</p>
                 </div>
                 <div className="step-card animate-on-scroll">
                     <div className="step-num">02</div>
-                    <h3>Análise do Caso</h3>
-                    <p>Analisamos a viabilidade jurídica e as chances de sucesso do desbloqueio.</p>
+                    <h3>Análise Jurídica Gratuita</h3>
+                    <p>Avaliamos o seu caso, identificamos a violação e verificamos as chances reais de reativação pela Justiça.</p>
                 </div>
                 <div className="step-card animate-on-scroll">
                     <div className="step-num">03</div>
-                    <h3>Ação Judicial Rápida</h3>
-                    <p>Entramos com as medidas necessárias para buscar a reativação da conta.</p>
+                    <h3>Ação Judicial de Urgência</h3>
+                    <p>Entramos com medida liminar para obrigar a Meta a reativar sua conta o mais rápido possível.</p>
                 </div>
                 <div className="step-card animate-on-scroll">
                     <div className="step-num">04</div>
-                    <h3>Acompanhamento</h3>
-                    <p>Você recebe atualizações constantes com total transparência.</p>
+                    <h3>Conta Reativada</h3>
+                    <p>Você recebe atualizações constantes e, em muitos casos, sua conta é reativada em poucas horas.</p>
                 </div>
             </div>
         </div>
