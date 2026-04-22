@@ -1,0 +1,223 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 15, 36, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.animate-modal {
+  animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--secondary);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-header p {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.qualification-form .form-group {
+  margin-bottom: 20px;
+}
+
+.qualification-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+.qualification-form .group-label {
+  margin-bottom: 12px;
+}
+
+.qualification-form input[type="text"],
+.qualification-form input[type="tel"] {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.qualification-form input[type="text"]::placeholder,
+.qualification-form input[type="tel"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.qualification-form input[type="text"]:focus,
+.qualification-form input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+.radio-group.stack {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.radio-label:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.radio-label.selected {
+  border-color: var(--secondary);
+  background-color: rgba(212, 175, 55, 0.2);
+  box-shadow: inset 0 0 0 1px var(--secondary);
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 10px;
+  accent-color: var(--secondary);
+  width: 16px;
+  height: 16px;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Custom Scrollbar for modal content */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Disqualified Screen */
+.modal-disqualified {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.disqualified-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.modal-disqualified h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.modal-disqualified p {
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 25px 20px;
+  }
+  
+  .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

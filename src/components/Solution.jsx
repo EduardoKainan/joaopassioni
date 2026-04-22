@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Solution = ({ whatsappLink }) => (
+const Solution = ({ onCtaClick }) => (
     <section className="section-solution section-padding">
         <div className="container solution-container">
             <div className="solution-image animate-on-scroll">
@@ -17,7 +17,7 @@ const Solution = ({ whatsappLink }) => (
             <div className="solution-text animate-on-scroll">
                 <h2 className="section-title">Somos líderes em Recuperação de Contas do WhatsApp.</h2>
                 <p>Conte com uma equipe especializada em direito digital para recuperar sua conta WhatsApp Business. Oferecemos soluções personalizadas e ágeis para devolver o seu acesso e garantir os seus direitos — com atendimento humanizado e resultados reais.</p>
-                <a href={whatsappLink} className="btn btn-primary">Falar com advogado agora</a>
+                <button onClick={onCtaClick} className="btn btn-primary">Falar com advogado agora</button>
             </div>
         </div>
     </section>

@@ -19,7 +19,7 @@ const faqs = [
     },
 ];
 
-const FAQ = ({ whatsappLink }) => {
+const FAQ = ({ onCtaClick }) => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
@@ -47,7 +47,7 @@ const FAQ = ({ whatsappLink }) => {
                     ))}
                 </div>
                 <div className="text-center" style={{ marginTop: '2rem' }}>
-                    <a href={whatsappLink} className="btn btn-primary">Falar com advogado agora</a>
+                    <button onClick={onCtaClick} className="btn btn-primary">Falar com advogado agora</button>
                 </div>
             </div>
         </section>

@@ -9,12 +9,18 @@ const Steps = lazy(() => import('./Steps'));
 const Testimonials = lazy(() => import('./Testimonials'));
 const Footer = lazy(() => import('./Footer'));
 const FAQ = lazy(() => import('./FAQ'));
-
-
-const LandingPageTemplate = ({ title, subtitle, badge }) => {
+import QualificationModal from './QualificationModal';const LandingPageTemplate = ({ title, subtitle, badge }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const whatsappNumber = "5519992345874";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20meu%20WhatsApp%20Business%20foi%20bloqueado%20e%20preciso%20de%20ajuda%20jurídica%20urgente.%20Gostaria%20de%20uma%20análise%20do%20meu%20caso.`;
+
+  const openModal = (e) => {
+    if (e) e.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -93,7 +99,7 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
               fetchpriority="high"
             />
           </div>
-          <a href={whatsappLink} className="btn-nav">WhatsApp</a>
+          <a href="#" onClick={openModal} className="btn-nav">WhatsApp</a>
         </div>
       </nav>
 
@@ -130,9 +136,9 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
           <p className="subheadline">
             {subtitle || defaultSubtitle}
           </p>
-          <a href={whatsappLink} className="btn btn-primary cta-hero">
+          <button onClick={openModal} className="btn btn-primary cta-hero">
             Falar com advogado agora
-          </a>
+          </button>
           <div className="hero-trust">
             <span>✓ Recuperação em até 48h</span>
             <span>✓ Indenização de até R$10.000</span>
@@ -165,24 +171,30 @@ const LandingPageTemplate = ({ title, subtitle, badge }) => {
 
       <Suspense fallback={<div className="section-loading">Carregando...</div>}>
         <Problem />
-        <Solution whatsappLink={whatsappLink} />
+        <Solution onCtaClick={openModal} />
         <Stats />
         <About />
         <Steps />
         <Testimonials />
-        <FAQ whatsappLink={whatsappLink} />
+        <FAQ onCtaClick={openModal} />
 
         {/* CTA Final */}
         <section className="section-cta-final section-padding bg-gradient animate-on-scroll">
           <div className="container text-center">
             <h2 className="section-title">Não perca mais um dia de faturamento por causa de um bloqueio injusto.</h2>
             <p className="lead">Enquanto sua conta está bloqueada, você está perdendo vendas, clientes e dinheiro. Fale agora com quem pode reverter isso pela Justiça — e ainda garantir uma indenização de até R$10.000.</p>
-            <a href={whatsappLink} className="btn btn-primary btn-large">Falar com advogado agora</a>
+            <button onClick={openModal} className="btn btn-primary btn-large">Falar com advogado agora</button>
           </div>
         </section>
 
         <Footer />
       </Suspense>
+
+      <QualificationModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        whatsappNumber={whatsappNumber} 
+      />
     </div>
   );
 };
