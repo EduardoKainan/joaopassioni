@@ -79,9 +79,13 @@ import QualificationModal from './QualificationModal';const LandingPageTemplate 
     }
   };
 
-  const defaultTitle = "WhatsApp Business Banido ou Bloqueado?";
-  const defaultSubtitle = "Sua conta WhatsApp Business foi banida, suspensa, hackeada ou desativada? Somos referência no Brasil em Recuperação de Contas Digitais — atuamos com urgência para devolver o seu negócio.";
-  const defaultBadge = "REFERÊNCIA EM RECUPERAÇÃO DE CONTAS DIGITAIS";
+  const defaultTitle = "Você Perdeu o WhatsApp que Usa para o seu Negócio?";
+  const defaultSubtitle = (
+    <>
+      Ter a ferramenta de trabalho bloqueada significa perder clientes e faturamento todos os dias. Somos especialistas em devolver contas comerciais na Justiça: <strong>a recuperação com liminar pode acontecer em até 48h, com possibilidade de indenização</strong> pelas suas perdas.
+    </>
+  );
+  const defaultBadge = "ATENDIMENTO EXCLUSIVO PARA CONTAS COMERCIAIS";
 
   return (
     <div className="lp-wrapper">
