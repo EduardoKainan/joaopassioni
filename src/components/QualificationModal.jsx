@@ -66,8 +66,25 @@ const QualificationModal = ({ isOpen, onClose, whatsappNumber }) => {
     setIsSubmitting(false);
 
     if (isDisqualified) {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_desqualificado',
+          lead_tipo: formData.tipoPessoa
+        });
+      }
       setStep(3); // Tela de desqualificação
     } else {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_qualificado',
+          lead_tipo: formData.tipoPessoa,
+          lead_uso: formData.usoWa,
+          tempo_banimento: formData.tempoBanimento
+        });
+      }
+
       // Montar link dinâmico com os dados
       const tipoLabel = formData.tipoPessoa === 'PF' ? 'Pessoa Física' : 'Pessoa Jurídica';
       const textMsg = `Olá, meu WhatsApp Business foi bloqueado e preciso de ajuda jurídica urgente.\n\n*Meus Dados:*\nNome: ${formData.nome}\nTipo: ${tipoLabel}\nUso do Whats: ${formData.usoWa}\nBanido há: ${formData.tempoBanimento}`;
