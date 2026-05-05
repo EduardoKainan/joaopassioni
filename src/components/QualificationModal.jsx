@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './QualificationModal.css';
 
 const QualificationModal = ({ isOpen, onClose, whatsappNumber }) => {
@@ -11,6 +11,29 @@ const QualificationModal = ({ isOpen, onClose, whatsappNumber }) => {
     usoWa: '',
     tempoBanimento: ''
   });
+
+  const [utms, setUtms] = useState({
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: '',
+    gclid: ''
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      setUtms({
+        utm_source: urlParams.get('utm_source') || '',
+        utm_medium: urlParams.get('utm_medium') || '',
+        utm_campaign: urlParams.get('utm_campaign') || '',
+        utm_term: urlParams.get('utm_term') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        gclid: urlParams.get('gclid') || ''
+      });
+    }
+  }, []);
 
   if (!isOpen) return null;
 
@@ -47,7 +70,8 @@ const QualificationModal = ({ isOpen, onClose, whatsappNumber }) => {
 
     const dataToSend = {
       ...formData,
-      statusLead: isDisqualified ? 'DESQUALIFICADO' : 'QUALIFICADO'
+      statusLead: isDisqualified ? 'DESQUALIFICADO' : 'QUALIFICADO',
+      ...utms
     };
 
     try {
